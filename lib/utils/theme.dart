@@ -263,7 +263,7 @@ class JFTheme extends InheritedWidget {
 }
 
 ///
-/// TODO
+/// TO DO
 /// - Write notes for the Design System by combining the 3 ideas
 /// We will prefer odd numbers instead of even ones :)
 /// 3,7, 13.17.19 etc
