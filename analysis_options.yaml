@@ -1,0 +1,52 @@
+include: package:pedantic/analysis_options.1.8.0.yaml
+
+analyzer:
+  exclude:
+    - lib/generated/**
+  strong-mode:
+    implicit-casts: false
+##                                            ##
+# Additional linting rules from Effective Dart #
+##                                            ##
+
+linter:
+  rules:
+    # STYLE
+    - camel_case_types
+    - file_names
+    - non_constant_identifier_names
+    - constant_identifier_names # prefer
+    - directives_ordering # prefer
+    - lines_longer_than_80_chars # avoid
+
+    # USAGE
+    - implementation_imports
+    - prefer_interpolation_to_compose_strings # prefer
+    - avoid_function_literals_in_foreach_calls # avoid
+    - prefer_function_declarations_over_variables
+    - unnecessary_lambdas
+    - avoid_init_to_null
+    - unnecessary_getters_setters
+    - prefer_initializing_formals
+    - type_init_formals
+    - avoid_catches_without_on_clauses # avoid
+    - avoid_catching_errors
+
+    # DESIGN
+    - use_to_and_as_if_applicable # prefer
+    - one_member_abstracts # avoid
+    - avoid_classes_with_only_static_members # avoid
+    - prefer_mixin
+    - use_setters_to_change_properties
+    - avoid_returning_null # avoid
+    - avoid_returning_this # avoid
+    - type_annotate_public_apis # prefer
+    - avoid_private_typedef_functions # prefer
+    - avoid_positional_boolean_parameters # avoid
+    - hash_and_equals
+    - avoid_equals_and_hash_code_on_mutable_classes # avoid
+    - avoid_null_checks_in_equality_operators
+    - prefer_spread_collections
+    -
+    # COMMENTS
+    -
