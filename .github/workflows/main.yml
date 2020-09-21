@@ -1,4 +1,4 @@
-name: Flutter Test
+name: Flutter Build CI
 on:
   push:
     paths:
@@ -24,8 +24,9 @@ jobs:
       - run: git clone https://github.com/flutter/flutter.git --depth 1 -b v1.15.17 _flutter
       - run: echo "::add-path::$GITHUB_WORKSPACE/_flutter/bin"
       - run: flutter pub get
-      - run: flutter build apk
-        working-directory: ./
+        #  - run: flutter test
+        #  - run: flutter build apk
+      working-directory: ./
 
   buildweb:
     name: Build Web
@@ -37,4 +38,5 @@ jobs:
           channel: beta
       - run: flutter config --enable-web
       - run: flutter pub get
-      - run: flutter build web
+      #  - run: flutter test
+      # - run: flutter build web
