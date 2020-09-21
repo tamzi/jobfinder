@@ -4,7 +4,9 @@ on:
     paths:
       - '.github/workflows/**'
   pull_request:
-    branches: [dev]
+    branches:
+      - dev
+      - master
     paths:
       - '.github/workflows/**'
       - 'pubspec.yaml'
@@ -13,6 +15,19 @@ on:
       - 'ios/**'
       - 'android/**'
 jobs:
+  limit_master_pr:
+    runs-on: ubuntu-latest
+    name: Limit PR to master from any branch
+    steps:
+      - name: Limit action step
+        id: limit_action
+        uses: LukBukkit/action-pr-limits@v1
+        with:
+          whitelist: |
+            dev
+
+
+
   buildandroid:
     name: Build Android
     runs-on: ubuntu-latest
