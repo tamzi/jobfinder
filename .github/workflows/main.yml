@@ -4,7 +4,7 @@ on:
     paths:
       - '.github/workflows/**'
   pull_request:
-    branches: [develop]
+    branches: [dev]
     paths:
       - '.github/workflows/**'
       - 'pubspec.yaml'
@@ -25,7 +25,7 @@ jobs:
       - run: echo "::add-path::$GITHUB_WORKSPACE/_flutter/bin"
       - run: flutter pub get
         working-directory: ./
-      - run: flutter build ios --no-codesign
+
   buildandroid:
     name: Build Android
     runs-on: ubuntu-latest
@@ -38,4 +38,3 @@ jobs:
       - run: echo "::add-path::$GITHUB_WORKSPACE/_flutter/bin"
       - run: flutter pub get
         working-directory: ./
-      - run: flutter build appbundle
