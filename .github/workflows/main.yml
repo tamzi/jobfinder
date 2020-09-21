@@ -27,14 +27,14 @@ jobs:
       - run: flutter build apk
         working-directory: ./
 
-  buildWeb:
+  buildweb:
     name: Build Web
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: subosito/flutter-action@v1
-         with:
-           channel: beta
+        with:
+          channel: beta
       - run: flutter config --enable-web
       - run: flutter pub get
       - run: flutter build web
