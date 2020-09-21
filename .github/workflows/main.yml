@@ -1,8 +1,8 @@
 on: push
-name: build and test app
+name: Test, Build and Release apk
 jobs:
   build:
-    name: install dependencies
+    name: Build APK
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -11,15 +11,7 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '1.9.1+hotfix.6'
+          flutter-version: '1.7.8+hotfix.4'
       - run: flutter pub get
       - run: flutter test
-      - run: flutter build apk
-      - uses: actions/checkout@v1
-      - uses: subosito/flutter-action@v1
-        with:
-          channel: beta
-      - run: flutter config --enable-web
-      - run: flutter pub get
-      - run: flutter test
-      - run: flutter build web
+      - run: flutter build apk --debug --split-per-abi
