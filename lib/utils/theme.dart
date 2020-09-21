@@ -35,6 +35,21 @@ const JFThemeData _default = JFThemeData(
   lightGray: JFThemeColors.lightGray,
 
   /// All Text Fields
+  appBarHeader: TextStyle(
+      fontSize: 27.0,
+      height: 1.7,
+      letterSpacing: -0.3,
+      fontFamily: 'DMSans',
+      fontWeight: FontWeight.w500,
+      color: JFThemeColors.black),
+  appBarDescriptionText: TextStyle(
+      fontSize: 13.0,
+      height: 1.3,
+      letterSpacing: 0.3,
+      fontFamily: 'Gilroy',
+      fontWeight: FontWeight.w700,
+      color: JFThemeColors.darkGray),
+
   header: TextStyle(
       fontSize: 37.0,
       height: 1.7,
@@ -63,6 +78,60 @@ const JFThemeData _default = JFThemeData(
       fontFamily: 'Gilroy',
       fontWeight: FontWeight.w300,
       color: JFThemeColors.black),
+  cardHeader: TextStyle(
+      fontSize: 17.0,
+      height: 1.3,
+      letterSpacing: -0.3,
+      fontFamily: 'Gilroy',
+      fontWeight: FontWeight.w700,
+      color: JFThemeColors.black),
+
+  ///TextButtons
+  buttonText: TextStyle(
+      fontSize: 13.0,
+      height: 1.2,
+      letterSpacing: -0.3,
+      fontFamily: 'Gilroy',
+      fontWeight: FontWeight.w300,
+      color: JFThemeColors.black),
+  flatButtonText: TextStyle(
+      fontSize: 15.0,
+      height: 1.2,
+      letterSpacing: -0.3,
+      fontFamily: 'Gilroy',
+      fontWeight: FontWeight.w500,
+      color: JFThemeColors.black),
+  buttonTextWhite: TextStyle(
+      fontSize: 13.0,
+      height: 1.2,
+      letterSpacing: -0.3,
+      fontFamily: 'Gilroy',
+      fontWeight: FontWeight.w300,
+      color: JFThemeColors.white),
+  buttonTextError: TextStyle(
+      fontSize: 13.0,
+      height: 1.2,
+      letterSpacing: -0.3,
+      fontFamily: 'Gilroy',
+      fontWeight: FontWeight.w300,
+      color: JFThemeColors.reddish),
+  buttonTextSuccess: TextStyle(
+      fontSize: 13.0,
+      height: 1.2,
+      letterSpacing: -0.3,
+      fontFamily: 'Gilroy',
+      fontWeight: FontWeight.w300,
+      color: JFThemeColors.limeGreenish),
+
+  ///FORM
+  ///
+  inputText: TextStyle(
+      fontSize: 13.0,
+      height: 1.2,
+      letterSpacing: -0.3,
+      fontFamily: 'Gilroy',
+      fontWeight: FontWeight.w300,
+      color: JFThemeColors.black),
 );
 
 class JFThemeData {
@@ -82,10 +151,26 @@ class JFThemeData {
   final JFThemeColors colors;
 
   //Text
+  ///AppBar Texts
+  final TextStyle appBarHeader;
+  final TextStyle appBarDescriptionText;
+
+  ///Content Texts
   final TextStyle header;
   final TextStyle title;
   final TextStyle bodyText;
   final TextStyle descriptionText;
+  final TextStyle cardHeader;
+
+  /// ButtonTexts
+  final TextStyle buttonText;
+  final TextStyle buttonTextError;
+  final TextStyle buttonTextSuccess;
+  final TextStyle buttonTextWhite;
+  final TextStyle flatButtonText;
+
+  //Form Texts
+  final TextStyle inputText;
 
   const JFThemeData({
     /// Colors
@@ -101,11 +186,25 @@ class JFThemeData {
     this.lightGray,
     this.white,
     this.colors,
-    //Text
+    // TEXT
+    /// AppBar Text
+    this.appBarHeader,
+    this.appBarDescriptionText,
+
+    /// Content Text
     this.header,
     this.title,
     this.bodyText,
     this.descriptionText,
+    this.cardHeader,
+    this.inputText,
+
+    /// ButtonTexts
+    this.buttonText,
+    this.flatButtonText,
+    this.buttonTextError,
+    this.buttonTextSuccess,
+    this.buttonTextWhite,
   });
 }
 
@@ -129,7 +228,6 @@ class JFThemeData {
 /// design system. They are referenced directly by the UI Component Widgets
 /// for the design system. This means that changing the values will change
 /// the visual styling of the UI Components.
-
 class JFTheme extends InheritedWidget {
   JFTheme({this.data = _default, @required this.child}) : super(child: child);
 
@@ -165,7 +263,7 @@ class JFTheme extends InheritedWidget {
 }
 
 ///
-///TODO
+/// TODO
 /// - Write notes for the Design System by combining the 3 ideas
 /// We will prefer odd numbers instead of even ones :)
 /// 3,7, 13.17.19 etc
