@@ -23,7 +23,6 @@ class JFThemeColors {
 }
 
 const JFThemeData _default = JFThemeData(
-
   /// Colors
   bluish: JFThemeColors.bluish,
   darkBluish: JFThemeColors.darkBluish,
@@ -255,7 +254,7 @@ class JFTheme extends InheritedWidget {
     ///the design system
     final Logger staticLogger = Logger();
     final JFTheme currentTheme =
-    context.dependOnInheritedWidgetOfExactType<JFTheme>();
+        context.dependOnInheritedWidgetOfExactType<JFTheme>();
     if (currentTheme == null) {
       staticLogger.w("JobFinderTheme missing. Will apply the default theme");
       return _default;
