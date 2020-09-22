@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/logger.dart';
 
@@ -18,9 +19,11 @@ class JFThemeColors {
   static const Color deepGray = Color.fromRGBO(230, 228, 230, 1.0);
   static const Color darkGray = Color.fromRGBO(131, 130, 154, 1.0);
   static const Color lightGray = Color.fromRGBO(246, 246, 246, 1.0);
+  static const Color buttonRed = Color.fromRGBO(255, 119, 119, 0.8);
 }
 
 const JFThemeData _default = JFThemeData(
+
   /// Colors
   bluish: JFThemeColors.bluish,
   darkBluish: JFThemeColors.darkBluish,
@@ -33,6 +36,7 @@ const JFThemeData _default = JFThemeData(
   deepGray: JFThemeColors.deepGray,
   darkGray: JFThemeColors.lightGray,
   lightGray: JFThemeColors.lightGray,
+  buttonRed: JFThemeColors.buttonRed,
 
   /// All Text Fields
   appBarHeader: TextStyle(
@@ -148,6 +152,8 @@ class JFThemeData {
   final Color darkGray;
   final Color lightGray;
 
+  final Color buttonRed;
+
   final JFThemeColors colors;
 
   //Text
@@ -186,6 +192,7 @@ class JFThemeData {
     this.lightGray,
     this.white,
     this.colors,
+    this.buttonRed,
     // TEXT
     /// AppBar Text
     this.appBarHeader,
@@ -248,7 +255,7 @@ class JFTheme extends InheritedWidget {
     ///the design system
     final Logger staticLogger = Logger();
     final JFTheme currentTheme =
-        context.dependOnInheritedWidgetOfExactType<JFTheme>();
+    context.dependOnInheritedWidgetOfExactType<JFTheme>();
     if (currentTheme == null) {
       staticLogger.w("JobFinderTheme missing. Will apply the default theme");
       return _default;
