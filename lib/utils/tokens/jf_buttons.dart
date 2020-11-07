@@ -13,7 +13,7 @@ class JFButtonGrey extends StatelessWidget {
     this.onPressed,
   });
 
-  /// We build our buttons calling the NCBAthemeData and the buttonBuilder
+  /// We build our buttons calling the JFthemeData and the buttonBuilder
   /// class.
   /// This can be repeated for all the buttons we want to build
   @override
@@ -38,7 +38,7 @@ class JFButtonBlack extends StatelessWidget {
     this.onPressed,
   });
 
-  /// We build our buttons calling the NCBAthemeData and the buttonBuilder
+  /// We build our buttons calling the JFthemeData and the buttonBuilder
   /// class.
   /// This can be repeated for all the buttons we want to build
   @override
@@ -63,7 +63,7 @@ class JFButtonRed extends StatelessWidget {
     this.onPressed,
   });
 
-  /// We build our buttons calling the NCBAthemeData and the buttonBuilder
+  /// We build our buttons calling the JFthemeData and the buttonBuilder
   /// class.
   /// This can be repeated for all the buttons we want to build
   @override

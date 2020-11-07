@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:jobfinder/utils/common/jf_texts.dart';
 import 'package:jobfinder/utils/scale.dart' as scale;
 import 'package:jobfinder/utils/theme.dart';
+import 'package:jobfinder/utils/tokens/jf_buttons.dart';
+import 'package:jobfinder/utils/tokens/jf_flat_buttons.dart';
+import 'package:jobfinder/utils/tokens/jf_texts.dart';
 
 void main() {
   runApp(JFTheme(
@@ -11,9 +13,8 @@ void main() {
     routes: {
       '/texts': (context) => TextsGallery(),
       '/buttons': (context) => ButtonsGallery(),
+      '/Card': (context) => CardGallery(),
       '/listTiles': (context) => ListTilesGallery(),
-      '/infoCard': (context) => InfoCardGallery(),
-      '/jobCard': (context) => JobCardGallery(),
     },
   )));
 }
@@ -37,7 +38,7 @@ class GalleryRoot extends StatelessWidget {
             children: <Widget>[
               /// Texts
               ListTile(
-                title: JFTitle("Texts"),
+                title: JFTitle("JF Texts"),
                 subtitle: JFDescriptionText(
                   "This will show a list of all the text items.",
                 ),
@@ -49,7 +50,7 @@ class GalleryRoot extends StatelessWidget {
 
               /// Buttons
               ListTile(
-                title: JFTitle("Buttons"),
+                title: JFTitle("JF Buttons"),
                 subtitle: JFDescriptionText(
                     "This will show a list of all the button widgets."),
                 onTap: () {
@@ -57,10 +58,19 @@ class GalleryRoot extends StatelessWidget {
                 },
               ),
               Divider(),
+              ListTile(
+                //TextButton
+                title: JFTitle("JF Card "),
+                subtitle: JFDescriptionText("Job Card Gallery. Can be tapped."),
+                onTap: () {
+                  Navigator.pushNamed(context, "/Card");
+                },
+              ),
+              Divider(),
 
               /// ListsGallery
               ListTile(
-                  //SlideButton
+                //SlideButton
                   title: JFTitle("JF Lists Gallery"),
                   subtitle: JFDescriptionText(
                       "Tiles layout with various information. Can be tapped."),
@@ -69,28 +79,7 @@ class GalleryRoot extends StatelessWidget {
                   }),
               Divider(),
 
-              /// Info Card
-              ListTile(
-                //TextButton
-                title: JFTitle("JF Info Card"),
-                subtitle:
-                    JFDescriptionText("Job Info Card Gallery. Can be tapped."),
-                onTap: () {
-                  Navigator.pushNamed(context, "/infoCard");
-                },
-              ),
-              Divider(),
-
               /// JobCardGallery
-              ListTile(
-                //TextButton
-                title: JFTitle("JF Card "),
-                subtitle: JFDescriptionText("Job Card Gallery. Can be tapped."),
-                onTap: () {
-                  Navigator.pushNamed(context, "/jobCard");
-                },
-              ),
-              Divider(),
             ],
           ),
         ));
@@ -98,6 +87,7 @@ class GalleryRoot extends StatelessWidget {
 }
 
 /// Start of Gallery element Classes
+/// Text Widgets Gallery
 class TextsGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -139,6 +129,7 @@ class TextsGallery extends StatelessWidget {
   }
 }
 
+//Button Widgets
 class ButtonsGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -151,12 +142,58 @@ class ButtonsGallery extends StatelessWidget {
           backgroundColor: JFThemeColors.deepGray,
         ),
         body: SafeArea(
-          child: Container(),
+          child: Container(
+            padding: EdgeInsets.all(scale.value(20.0)),
+            child: SingleChildScrollView(
+              child: Column(children: <Widget>[
+                Container(
+                  width: double.infinity,
+                  child: JFButtonBlack(
+                    label: 'Apply Now',
+                    onPressed: () {
+                      print('You tapped on ButtonBlack with text Apply Now');
+                    },
+                  ),
+                ),
+                Divider(),
+                Container(
+                  width: double.infinity,
+                  child: JFButtonGrey(
+                    label: 'Delivered',
+                    onPressed: () {
+                      print('You tapped on ButtonGrey with text Delivered');
+                    },
+                  ),
+                ),
+                Divider(),
+                Container(
+                  width: double.infinity,
+                  child: JFButtonRed(
+                    label: 'Apply for job',
+                    onPressed: () {
+                      print('You tapped on ButtonRed with text Apply for job');
+                    },
+                  ),
+                ),
+                Divider(),
+                Container(
+                  width: double.infinity,
+                  child: JFPlainFlatButton(
+                    label: 'FlatButton',
+                    onPressed: () {
+                      print('You tapped a FlatButton with text FlatButton');
+                    },
+                  ),
+                ),
+                Divider(),
+              ]),
+            ),
+          ),
         ));
   }
 }
 
-class InfoCardGallery extends StatelessWidget {
+class CardGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -168,24 +205,12 @@ class InfoCardGallery extends StatelessWidget {
           backgroundColor: JFThemeColors.deepGray,
         ),
         body: SafeArea(
-          child: Container(),
-        ));
-  }
-}
-
-class ListTilesGallery extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          title: JFAppBarHeader('List Tiles'),
-          centerTitle: true,
-          elevation: 3,
-          backgroundColor: JFThemeColors.deepGray,
-        ),
-        body: SafeArea(
-          child: Container(),
+          child: Container(
+            padding: EdgeInsets.all(scale.value(20.0)),
+            child: SingleChildScrollView(
+              child: Column(children: <Widget>[]),
+            ),
+          ),
         ));
   }
 }
@@ -202,7 +227,34 @@ class JobCardGallery extends StatelessWidget {
           backgroundColor: JFThemeColors.deepGray,
         ),
         body: SafeArea(
-          child: Container(),
+          child: Container(
+            padding: EdgeInsets.all(scale.value(20.0)),
+            child: SingleChildScrollView(
+              child: Column(children: <Widget>[]),
+            ),
+          ),
+        ));
+  }
+}
+
+class ListTilesGallery extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          title: JFAppBarHeader('List Tiles'),
+          centerTitle: true,
+          elevation: 3,
+          backgroundColor: JFThemeColors.deepGray,
+        ),
+        body: SafeArea(
+          child: Container(
+            padding: EdgeInsets.all(scale.value(20.0)),
+            child: SingleChildScrollView(
+              child: Column(children: <Widget>[]),
+            ),
+          ),
         ));
   }
 }
