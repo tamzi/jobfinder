@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:jobfinder/utils/common/jf_texts.dart';
 import 'package:jobfinder/utils/theme.dart';
+import 'package:jobfinder/utils/tokens/jf_texts.dart';
 
 void main() {
   runApp(MyApp());

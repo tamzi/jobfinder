@@ -2,7 +2,7 @@
 
 A job finder app done in flutter
 Based on:
- 1. [job Finder driobble shot](https://dribbble.com/shots/12322909-Job-Finder-App-Design) 
+ 1. [job Finder dribble shot](https://dribbble.com/shots/12322909-Job-Finder-App-Design)
     by Imran Hossain
  2. [Job Finder App Concept](https://www.behance.net/gallery/92923159/LOJO-Job-Finder-App)
     by
