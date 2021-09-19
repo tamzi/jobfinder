@@ -5,10 +5,10 @@ import 'package:jobfinder/utils/theme.dart';
 /// This creates a default buttons that can be usd all across the app
 class JFPlainFlatButton extends StatelessWidget {
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   JFPlainFlatButton({
-    @required this.label,
+    required this.label,
     this.onPressed,
   });
 
@@ -29,10 +29,10 @@ class JFPlainFlatButton extends StatelessWidget {
 
 class JFGreyFlatButton extends StatelessWidget {
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   JFGreyFlatButton({
-    @required this.label,
+    required this.label,
     this.onPressed,
   });
 
@@ -52,10 +52,10 @@ class JFGreyFlatButton extends StatelessWidget {
 
 class JFFlatButtonGrey extends StatelessWidget {
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   JFFlatButtonGrey({
-    @required this.label,
+    required this.label,
     this.onPressed,
   });
 
@@ -76,10 +76,10 @@ class JFFlatButtonGrey extends StatelessWidget {
 
 class JFWarningFlatButton extends StatelessWidget {
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   JFWarningFlatButton({
-    @required this.label,
+    required this.label,
     this.onPressed,
   });
 
@@ -100,10 +100,10 @@ class JFWarningFlatButton extends StatelessWidget {
 
 class JFSuccessFlatButton extends StatelessWidget {
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   JFSuccessFlatButton({
-    @required this.label,
+    required this.label,
     this.onPressed,
   });
 
@@ -125,18 +125,18 @@ class JFSuccessFlatButton extends StatelessWidget {
 /// This is a button builder that will be used to build the
 /// various properties we need for the buttons that will be created.
 class _ButtonBuilder {
-  final Color color;
-  final Color textColor;
+  final Color? color;
+  final Color? textColor;
   final JFThemeData textStyle;
-  final String label;
-  final VoidCallback onPressed;
+  final String? label;
+  final VoidCallback? onPressed;
   final double elevation;
   final double borderRadius;
   final double buttonWidth;
 
   _ButtonBuilder({
-    @required this.onPressed,
-    @required this.textStyle,
+    required this.onPressed,
+    required this.textStyle,
     this.color,
     this.textColor,
     this.label,
@@ -154,6 +154,6 @@ class _ButtonBuilder {
         padding: EdgeInsets.only(top: 17.0, bottom: 17.0),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(borderRadius)),
-        child: Text(this.label));
+        child: Text(this.label!));
   }
 }

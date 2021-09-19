@@ -6,10 +6,10 @@ import 'package:jobfinder/utils/theme.dart';
 
 class JFButtonGrey extends StatelessWidget {
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   JFButtonGrey({
-    @required this.label,
+    required this.label,
     this.onPressed,
   });
 
@@ -31,10 +31,10 @@ class JFButtonGrey extends StatelessWidget {
 
 class JFButtonBlack extends StatelessWidget {
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   JFButtonBlack({
-    @required this.label,
+    required this.label,
     this.onPressed,
   });
 
@@ -56,10 +56,10 @@ class JFButtonBlack extends StatelessWidget {
 
 class JFButtonRed extends StatelessWidget {
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   JFButtonRed({
-    @required this.label,
+    required this.label,
     this.onPressed,
   });
 
@@ -82,21 +82,21 @@ class JFButtonRed extends StatelessWidget {
 /// This is a button builder that will be used to build the
 /// various properties we need for the buttons that will be created.
 class _ButtonBuilder {
-  final Color color;
-  final Color textColor;
-  final Color splashColor;
+  final Color? color;
+  final Color? textColor;
+  final Color? splashColor;
   final double elevation;
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final double borderRadius;
   final double buttonWidth;
 
   _ButtonBuilder(
-      {@required this.color,
-      @required this.textColor,
-      @required this.splashColor,
-      @required this.label,
-      @required this.onPressed,
+      {required this.color,
+      required this.textColor,
+      required this.splashColor,
+      required this.label,
+      required this.onPressed,
       this.buttonWidth = double.infinity,
       this.elevation = 3.0,
       this.borderRadius = 13.0});

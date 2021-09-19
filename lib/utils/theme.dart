@@ -139,43 +139,43 @@ const JFThemeData _default = JFThemeData(
 
 class JFThemeData {
   /// Colors
-  final Color bluish;
-  final Color darkBluish;
-  final Color black;
-  final Color reddish;
-  final Color warmRed;
-  final Color limeGreenish;
-  final Color white;
-  final Color gray;
-  final Color deepGray;
-  final Color darkGray;
-  final Color lightGray;
+  final Color? bluish;
+  final Color? darkBluish;
+  final Color? black;
+  final Color? reddish;
+  final Color? warmRed;
+  final Color? limeGreenish;
+  final Color? white;
+  final Color? gray;
+  final Color? deepGray;
+  final Color? darkGray;
+  final Color? lightGray;
 
-  final Color buttonRed;
+  final Color? buttonRed;
 
-  final JFThemeColors colors;
+  final JFThemeColors? colors;
 
   //Text
   ///AppBar Texts
-  final TextStyle appBarHeader;
-  final TextStyle appBarDescriptionText;
+  final TextStyle? appBarHeader;
+  final TextStyle? appBarDescriptionText;
 
   ///Content Texts
-  final TextStyle header;
-  final TextStyle title;
-  final TextStyle bodyText;
-  final TextStyle descriptionText;
-  final TextStyle cardHeader;
+  final TextStyle? header;
+  final TextStyle? title;
+  final TextStyle? bodyText;
+  final TextStyle? descriptionText;
+  final TextStyle? cardHeader;
 
   /// ButtonTexts
-  final TextStyle buttonText;
-  final TextStyle buttonTextError;
-  final TextStyle buttonTextSuccess;
-  final TextStyle buttonTextWhite;
-  final TextStyle flatButtonText;
+  final TextStyle? buttonText;
+  final TextStyle? buttonTextError;
+  final TextStyle? buttonTextSuccess;
+  final TextStyle? buttonTextWhite;
+  final TextStyle? flatButtonText;
 
   //Form Texts
-  final TextStyle inputText;
+  final TextStyle? inputText;
 
   const JFThemeData({
     /// Colors
@@ -235,7 +235,7 @@ class JFThemeData {
 /// for the design system. This means that changing the values will change
 /// the visual styling of the UI Components.
 class JFTheme extends InheritedWidget {
-  JFTheme({this.data = _default, @required this.child}) : super(child: child);
+  JFTheme({this.data = _default, required this.child}) : super(child: child);
 
   /// The design tokens used by UI Components to apply styling.
   final JFThemeData data;
@@ -253,7 +253,7 @@ class JFTheme extends InheritedWidget {
     ///Ideally this should not be case as we will follow strcitly
     ///the design system
     final Logger staticLogger = Logger();
-    final JFTheme currentTheme =
+    final JFTheme? currentTheme =
         context.dependOnInheritedWidgetOfExactType<JFTheme>();
     if (currentTheme == null) {
       staticLogger.w("JobFinderTheme missing. Will apply the default theme");

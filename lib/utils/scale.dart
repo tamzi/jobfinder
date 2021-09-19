@@ -27,7 +27,7 @@ class _Scale {
 ///
 /// For mobile, call `setScale` when the app starts.
 /// On Web the scale factor could change based on the size of the window.
-void setScale({double designedScreenWidth, double deviceWidth}) {
+void setScale({required double designedScreenWidth, required double deviceWidth}) {
   _Scale().factor = deviceWidth / designedScreenWidth;
 }
 
