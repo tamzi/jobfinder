@@ -127,7 +127,6 @@ class JFSuccessFlatButton extends StatelessWidget {
 class _ButtonBuilder {
   final Color? color;
   final Color? textColor;
-  final JFThemeData textStyle;
   final String? label;
   final VoidCallback? onPressed;
   final double elevation;
@@ -136,7 +135,6 @@ class _ButtonBuilder {
 
   _ButtonBuilder({
     required this.onPressed,
-    required this.textStyle,
     this.color,
     this.textColor,
     this.label,

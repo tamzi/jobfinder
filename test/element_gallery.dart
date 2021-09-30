@@ -208,7 +208,26 @@ class CardGallery extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(scale.value(20.0)),
             child: SingleChildScrollView(
-              child: Column(children: <Widget>[]),
+              child: Column(children: <Widget>[
+                Container(
+                  child:  ElevatedButton(
+                    child: Text('An Elevated Button'),
+                    onPressed: () {
+                      print('Pressed');
+                    },
+                  )
+                ),
+                Divider(),
+                Container(
+                    child:  ElevatedButton.icon(
+                      label: Text('Elevated icon button'),
+                      icon: Icon(Icons.web),
+                      onPressed: () {
+                        print('Pressed');
+                      },
+                    )
+                ),
+              ]),
             ),
           ),
         ));
