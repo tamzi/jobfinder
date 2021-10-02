@@ -15,8 +15,9 @@ on:
       - 'ios/**'
       - 'android/**'
 jobs:
+  ### Limits push tp Master branch
   limit_master_pr:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     name: Limit PR to master from any branch
     steps:
       - uses: LukBukkit/action-pr-limits@v1
@@ -24,31 +25,69 @@ jobs:
           whitelist: |
             dev
 
+  ### Runs Flutter Test
+  flutter_test:
+    name: Run flutter test and analyze
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "beta"
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
 
-  buildandroid:
-    name: Build Android
+  ### Builds Android APp bundles instead of apk
+  build_appbundle:
+    name: Build Flutter (Android)
+    needs: [flutter_test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-java@v1
         with:
           java-version: '12.x'
-      - run: git clone https://github.com/flutter/flutter.git --depth 1 -b v1.15.17 _flutter
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "beta"
       - run: echo "::add-path::$GITHUB_WORKSPACE/_flutter/bin"
       - run: flutter pub get
-        #  - run: flutter test
-        #  - run: flutter build apk
+      - run: flutter clean
+      - run: flutter build appbundle
         working-directory: ./
 
+  ### BUilds IOS ia
+  build_ios:
+    name: Build Flutter (iOS)
+    needs: [ flutter_test ]
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: "12.x"
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: "beta"
+      - run: flutter pub get
+      - run: flutter clean
+      - run: flutter build ios --release --no-codesign
+
+  ### Builds web
   buildweb:
     name: Build Web
+    needs: [flutter_test]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
       - uses: subosito/flutter-action@v1
         with:
-          channel: beta
+          channel: "beta"
       - run: flutter config --enable-web
       - run: flutter pub get
-      #  - run: flutter test
-      # - run: flutter build web
+      - run: flutter clean
+      - run: flutter build web
