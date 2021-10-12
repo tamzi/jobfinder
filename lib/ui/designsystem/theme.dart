@@ -1,26 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:logger/logger.dart';
-
-/// These will form the Colors for the theme.
-/// The colors defined here are only available via JobFinderThemeColors.
-/// With this we will have a constant use of the Theme colors directly.
-class JFThemeColors {
-  JFThemeColors._();
-
-  static const Color bluish = Color.fromRGBO(89, 68, 190, 1.0);
-  static const Color darkBluish = Color.fromRGBO(49, 38, 81, 1.0);
-  static const Color black = Color.fromRGBO(19, 19, 19, 1.0);
-  static const Color reddish = Color.fromRGBO(255, 67, 67, 1.0);
-  static const Color warmRed = Color.fromRGBO(255, 119, 84, 1.0);
-  static const Color limeGreenish = Color.fromRGBO(74, 187, 0, 1.0);
-  static const Color white = Color.fromRGBO(255, 255, 255, 1.0);
-  static const Color gray = Color.fromRGBO(239, 239, 239, 1.0);
-  static const Color deepGray = Color.fromRGBO(230, 228, 230, 1.0);
-  static const Color darkGray = Color.fromRGBO(131, 130, 154, 1.0);
-  static const Color lightGray = Color.fromRGBO(246, 246, 246, 1.0);
-  static const Color buttonRed = Color.fromRGBO(255, 119, 119, 0.8);
-}
+import 'package:jobfinder/ui/designsystem/atoms/jf_colours.dart';
 
 const JFThemeData _default = JFThemeData(
   /// Colors
@@ -90,18 +71,20 @@ const JFThemeData _default = JFThemeData(
       color: JFThemeColors.black),
 
   ///TextButtons
+  ///The buttonText will be the default button text for all the
+  ///buttons in the application.
   buttonText: TextStyle(
-      fontSize: 13.0,
+      fontSize: 17.0,
       height: 1.2,
       letterSpacing: -0.3,
-      fontFamily: 'Gilroy',
+      fontFamily: 'DMSans',
       fontWeight: FontWeight.w300,
       color: JFThemeColors.black),
   flatButtonText: TextStyle(
       fontSize: 15.0,
       height: 1.2,
       letterSpacing: -0.3,
-      fontFamily: 'Gilroy',
+      fontFamily: 'DMSans',
       fontWeight: FontWeight.w500,
       color: JFThemeColors.black),
   buttonTextWhite: TextStyle(
@@ -139,43 +122,43 @@ const JFThemeData _default = JFThemeData(
 
 class JFThemeData {
   /// Colors
-  final Color bluish;
-  final Color darkBluish;
-  final Color black;
-  final Color reddish;
-  final Color warmRed;
-  final Color limeGreenish;
-  final Color white;
-  final Color gray;
-  final Color deepGray;
-  final Color darkGray;
-  final Color lightGray;
+  final Color? bluish;
+  final Color? darkBluish;
+  final Color? black;
+  final Color? reddish;
+  final Color? warmRed;
+  final Color? limeGreenish;
+  final Color? white;
+  final Color? gray;
+  final Color? deepGray;
+  final Color? darkGray;
+  final Color? lightGray;
 
-  final Color buttonRed;
+  final Color? buttonRed;
 
-  final JFThemeColors colors;
+  final JFThemeColors? colors;
 
   //Text
   ///AppBar Texts
-  final TextStyle appBarHeader;
-  final TextStyle appBarDescriptionText;
+  final TextStyle? appBarHeader;
+  final TextStyle? appBarDescriptionText;
 
   ///Content Texts
-  final TextStyle header;
-  final TextStyle title;
-  final TextStyle bodyText;
-  final TextStyle descriptionText;
-  final TextStyle cardHeader;
+  final TextStyle? header;
+  final TextStyle? title;
+  final TextStyle? bodyText;
+  final TextStyle? descriptionText;
+  final TextStyle? cardHeader;
 
   /// ButtonTexts
-  final TextStyle buttonText;
-  final TextStyle buttonTextError;
-  final TextStyle buttonTextSuccess;
-  final TextStyle buttonTextWhite;
-  final TextStyle flatButtonText;
+  final TextStyle? buttonText;
+  final TextStyle? buttonTextError;
+  final TextStyle? buttonTextSuccess;
+  final TextStyle? buttonTextWhite;
+  final TextStyle? flatButtonText;
 
   //Form Texts
-  final TextStyle inputText;
+  final TextStyle? inputText;
 
   const JFThemeData({
     /// Colors
@@ -224,20 +207,20 @@ class JFThemeData {
 /// See Usage below.
 ///
 /// The values for the Theme are provided by [JFThemeData].
-/// (The properties of [JFThemeData] are the design tokens for the UI.)
+/// (The properties of [JFThemeData] are the design atoms for the UI.)
 ///
 /// The default theme values (aka fallback theme) used is considered the
 /// standard theme configuration. This can be replaced in the
 /// JobFinderThemeData constructor if needed.
 ///
-/// The fields in this class represent the design tokens in the Job Finder
+/// The fields in this class represent the design atoms in the Job Finder
 /// design system. They are referenced directly by the UI Component Widgets
 /// for the design system. This means that changing the values will change
 /// the visual styling of the UI Components.
 class JFTheme extends InheritedWidget {
-  JFTheme({this.data = _default, @required this.child}) : super(child: child);
+  JFTheme({this.data = _default, required this.child}) : super(child: child);
 
-  /// The design tokens used by UI Components to apply styling.
+  /// The design atoms used by UI Components to apply styling.
   final JFThemeData data;
   final Widget child;
 
@@ -253,7 +236,7 @@ class JFTheme extends InheritedWidget {
     ///Ideally this should not be case as we will follow strcitly
     ///the design system
     final Logger staticLogger = Logger();
-    final JFTheme currentTheme =
+    final JFTheme? currentTheme =
         context.dependOnInheritedWidgetOfExactType<JFTheme>();
     if (currentTheme == null) {
       staticLogger.w("JobFinderTheme missing. Will apply the default theme");
@@ -267,9 +250,3 @@ class JFTheme extends InheritedWidget {
     return data == (oldWidget as JFTheme).data;
   }
 }
-
-///
-/// TO DO
-/// - Write notes for the Design System by combining the 3 ideas
-/// We will prefer odd numbers instead of even ones :)
-/// 3,7, 13.17.19 etc

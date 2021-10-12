@@ -27,7 +27,7 @@ class _Scale {
 ///
 /// For mobile, call `setScale` when the app starts.
 /// On Web the scale factor could change based on the size of the window.
-void setScale({double designedScreenWidth, double deviceWidth}) {
+void setScale({required double designedScreenWidth, required double deviceWidth}) {
   _Scale().factor = deviceWidth / designedScreenWidth;
 }
 
@@ -49,7 +49,7 @@ double value(double original) => original * _Scale().factor;
 Size size(Size original) => Size(value(original.width), value(original.height));
 
 ///  To use just add:
-/// import 'package:jobfinder/utils/scale.dart' as scale;
+/// import 'package:jobfinder/designsystem/scale.dart' as scale;
 /// then use as: scale.value(double),
 /// where double is the digit value as 45.0 hence will look like:
 /// scale.value(45.0),
