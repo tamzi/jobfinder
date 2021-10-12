@@ -1,8 +1,16 @@
 name: Flutter Build CI
 on:
   push:
+    branches:
+      - dev
+      - master
     paths:
       - '.github/workflows/**'
+      - 'pubspec.yaml'
+      - 'pubspec.lock'
+      - 'lib/**'
+      - 'ios/**'
+      - 'android/**'
   pull_request:
     branches:
       - dev
