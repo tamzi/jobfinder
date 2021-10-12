@@ -29,4 +29,3 @@ class ListTilesGallery extends StatelessWidget {
         ));
   }
 }
-
