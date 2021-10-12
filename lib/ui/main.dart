@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
           title: JFTitle('Job Finder'),
           centerTitle: true,
           elevation: 0,
-          backgroundColor: JFThemeColors.lightGray,
+          backgroundColor: JFThemeColors.lightGrey,
         ),
         body: SafeArea(
           child: Container(),

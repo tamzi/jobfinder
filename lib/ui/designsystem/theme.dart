@@ -6,16 +6,16 @@ import 'package:jobfinder/ui/designsystem/atoms/jf_colours.dart';
 const JFThemeData _default = JFThemeData(
   /// Colors
   bluish: JFThemeColors.bluish,
-  darkBluish: JFThemeColors.darkBluish,
+  darkBluish: JFThemeColors.darkBlue,
   reddish: JFThemeColors.reddish,
   warmRed: JFThemeColors.warmRed,
-  limeGreenish: JFThemeColors.limeGreenish,
+  limeGreenish: JFThemeColors.limeGreen,
   white: JFThemeColors.white,
   black: JFThemeColors.black,
-  gray: JFThemeColors.gray,
+  gray: JFThemeColors.grey,
   deepGray: JFThemeColors.deepGray,
-  darkGray: JFThemeColors.lightGray,
-  lightGray: JFThemeColors.lightGray,
+  darkGray: JFThemeColors.lightGrey,
+  lightGray: JFThemeColors.lightGrey,
   buttonRed: JFThemeColors.buttonRed,
 
   /// All Text Fields
@@ -107,7 +107,7 @@ const JFThemeData _default = JFThemeData(
       letterSpacing: -0.3,
       fontFamily: 'Gilroy',
       fontWeight: FontWeight.w300,
-      color: JFThemeColors.limeGreenish),
+      color: JFThemeColors.limeGreen),
 
   ///FORM
   ///

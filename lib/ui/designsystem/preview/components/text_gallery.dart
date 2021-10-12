@@ -10,7 +10,7 @@ class TextsGallery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: JFThemeColors.lightGray,
+        backgroundColor: JFThemeColors.lightGrey,
         appBar: AppBar(
           title: JFAppBarHeader('Text Items'),
           centerTitle: true,
