@@ -1,5 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:jobfinder/utils/theme.dart';
+import 'package:jobfinder/ui/designsystem/theme.dart';
 
 abstract class _JFtext extends StatelessWidget {
   final String text;
@@ -11,12 +12,11 @@ abstract class _JFtext extends StatelessWidget {
     required this.text,
     required this.textAlign,
     required this.textOverflow,
-  })  : assert(text != null, "A non-null String must be provided"),
-        super(key: key);
+  })  : super(key: key);
 }
 
 // APPBAR TEXT ELEMENTS
-/// THese are texts tht aiwll be used generally in the
+/// THese are texts that will be used generally in the
 /// appbars and sliverBars
 /// APpBarHEader
 class JFAppBarHeader extends _JFtext {
@@ -118,6 +118,24 @@ class JFDescriptionText extends _JFtext {
   }
 }
 
+class JFParagraphText extends _JFtext {
+  const JFParagraphText(String text,
+      {Key? key,
+      TextAlign textAlign = TextAlign.start,
+      TextOverflow textOverflow = TextOverflow.visible})
+      : super(text: text, textAlign: textAlign, textOverflow: textOverflow);
+
+  @override
+  Widget build(BuildContext context) {
+    return AutoSizeText(
+      text,
+      textAlign: textAlign,
+      overflow: textOverflow,
+      style: JFTheme.of(context).descriptionText,
+    );
+  }
+}
+
 // Body Text
 /// This is the body text that will exist in the project
 class JFBodyText extends _JFtext {
@@ -203,7 +221,6 @@ class JFFlatBtnText extends _JFtext {
 }
 
 //White Button Text
-///
 class JFBtnTextWhite extends _JFtext {
   const JFBtnTextWhite(String text,
       {Key? key,
@@ -223,7 +240,6 @@ class JFBtnTextWhite extends _JFtext {
 }
 
 // Error Button Text
-///
 class JFBtnTextError extends _JFtext {
   const JFBtnTextError(String text,
       {Key? key,
@@ -243,7 +259,6 @@ class JFBtnTextError extends _JFtext {
 }
 
 // Success Button Text
-///
 class JFBtnTextSuccess extends _JFtext {
   const JFBtnTextSuccess(String text,
       {Key? key,

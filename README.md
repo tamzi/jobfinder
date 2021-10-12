@@ -11,3 +11,5 @@ Based on:
 ### TO DO
 - Add a readMe based on ReadMe master templates
 - Notes for a Design System based on the 3 concepts above
+
+# uses GetX for state management
