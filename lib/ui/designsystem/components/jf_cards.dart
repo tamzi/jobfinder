@@ -1,4 +1,3 @@
-
 /*
 Types of cards that exist:
 1. Brief JobCard:
@@ -38,7 +37,6 @@ in this context
 6. QuickAction Cards
 - (Seen here: https://www.behance.net/gallery/101334053/Job-Finder_Mobile-App-Concept)
 - Like icon on the left apply button on the right
-
 
  */
 
