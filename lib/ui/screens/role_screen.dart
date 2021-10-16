@@ -6,5 +6,4 @@
 * Remuneration and mode(fulltime/parttime/contract)
 * companylog, name and days l;eft to apply
 *
-*
 * */
