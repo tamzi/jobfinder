@@ -39,5 +39,3 @@ in this context
 - Like icon on the left apply button on the right
 
  */
-
-
