@@ -1,6 +1,5 @@
 import 'package:jobfinder/ui/designsystem/utils/scale.dart' as scale;
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:jobfinder/ui/designsystem/theme.dart';
 
 /// This is a button builder that will be used to build the

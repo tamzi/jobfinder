@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:jobfinder/ui/designsystem/theme.dart';
 
 /// This creates a default buttons that can be usd all across the app
