@@ -9,7 +9,9 @@ import 'components/flat_buttons_gallery.dart';
 import 'components/list_tiles_gallery.dart';
 import 'components/text_gallery.dart';
 import 'package:jobfinder/ui/designsystem/utils/scale.dart' as scale;
-
+/**
+ * A gallery of the various design elements being used
+ * **/
 void main() {
   runApp(JFTheme(
       child: MaterialApp(

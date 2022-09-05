@@ -1,6 +1,6 @@
 /*
 * Form has the following:
-- Perosnal details
+- Personal details
 - Recent role
 - Documents Upload
 - Employer questions

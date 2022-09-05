@@ -1,11 +1,9 @@
 
-/*
+/***
 Will have:
     - Jobs
-    - Applications you ahve made
+    - Applications you have made
     - Profile
     - Settings
 
-
-
-    */
+ */
