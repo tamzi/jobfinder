@@ -39,5 +39,3 @@ Types of cards that exist:
   - Like icon on the left apply button on the right
 
  */
-
-
